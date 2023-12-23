@@ -23,9 +23,16 @@ const Navbar = () => {
     <nav className="bg-blue-500 p-4">
       <div className="container mx-auto flex items-center justify-between">
         <div className="w-[200px]">
-          <Link to="/">
+          {isAuth?(
+            <Link to="/">
             <img src={sikImage} className="w-full h-full" alt="logo" />
           </Link>
+          ):(
+            <Link to="/login">
+            <img src={sikImage} className="w-full h-full" alt="logo" />
+          </Link>
+          )}
+          
         </div>
 
         {isMobile ? (
@@ -37,9 +44,15 @@ const Navbar = () => {
         ) : null}
 
         <div className={`md:flex space-x-4 ${isMobile && isNavOpen ? 'flex' : 'hidden'}`}>
-          <Link to="/" className="text-white">
-            Home
-          </Link>
+        {isAuth?(
+            <Link to="/" className='text-white'>
+              Home
+            </Link>
+          ):(
+            <Link to="/login" className='text-white'>
+              Home
+           </Link>
+          )}
           <a href="#" className="text-white">
             About
           </a>

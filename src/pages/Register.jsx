@@ -6,12 +6,15 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [validate,setValidate] = useState({})
-  const {register,registerComplete,loginmessae} = useLoginContext()
+  const {register,loginmessae,clearLoginmessage} = useLoginContext()
   // useEffect(()=>{ 
   //   const message = localStorage.getItem('message')
   // },[])
   
   // console.log(registerComplete)z
+  useEffect(()=>{ 
+    clearLoginmessage()
+  },[])
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {}
@@ -35,7 +38,7 @@ const Register = () => {
 
   return (
     <div className="min-h-[95vh] flex items-center justify-center bg-gray-100">
-      {registerComplete}
+      
       <div className="bg-white p-8 rounded shadow-md w-full md:w-1/3">
         <h2 className="text-2xl font-semibold mb-6">Register</h2>
         <form onSubmit={handleSubmit}>

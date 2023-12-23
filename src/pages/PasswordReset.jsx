@@ -5,11 +5,15 @@ const PasswordReset = () => {
   const [otp, setOtp] = useState('');
   const [password, setPassword] = useState('');
   const [validate,setValidate] = useState({})
-  const {sendotp,showotp,message,verify} = useLoginContext()
+  const {sendotp,showotp,message,verify,errorMessage,clearLoginmessage} = useLoginContext()
   const [ispending,setIspending] = useState(true)
+  
   useEffect(()=>{ 
     setIspending(prev=>!prev)
   },[showotp])
+  useEffect(()=>{ 
+    clearLoginmessage()
+  },[])
 
   const handleReset = async (e) => {
     e.preventDefault();
@@ -86,7 +90,8 @@ const PasswordReset = () => {
           
         ):(
           <form onSubmit={handleReset}>
-             
+              {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
+
               <div className="mb-4">
                 <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
                 {message&&<p className= "text-red-500 text-sm text-center">{message}</p>}

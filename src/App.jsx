@@ -16,6 +16,7 @@ import CourseDetail from './pages/CourseDetail';
 import LessonDetail from './pages/LessonDetail';
 import LessonVideoDetail from './pages/LessonVideoDetail';
 import Bookmark from './pages/Bookmark';
+import Note from './pages/Note';
 function App() {
   const [isNavOpen, setNavOpen] = useState(false);
   // const {isAuth}  = useLoginContext()
@@ -44,6 +45,8 @@ function App() {
               <Route path = "course/:courseId/lesson/:lessonId/" element = {<LessonDetail/>}/>
               <Route path = "course/:courseId/lesson/:lessonId/video/:videoId/" element = {<LessonVideoDetail  />}/>
               <Route path="/bookmarks" element = {<Bookmark/>} /> 
+              <Route path = "/note/:noteId/" element = {<Note/>}/>
+
             </Routes>
           </PostProvider>
         </AuthProvider>

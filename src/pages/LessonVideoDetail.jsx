@@ -31,9 +31,9 @@ function LessonVideoDetail() {
           notes.map((item) => (
             <div className="bg-gray-100 flex justify-between p-3 mt-3 rounded-md" key={item.id}>
               <p>{item.title}</p>
-              <div className="flex gap-3">
-                <Link to="/">Visit note</Link>
-                <Link to="/">Download note</Link>
+              <div className="md:flex gap-3 md:flex-row flex-col">
+                <Link to={`/note/${item.id}/` } className='p-2 rounded-md bg-green-500 text-white '>Visit note</Link>
+                <Link to="/" className='p-2 rounded-md bg-blue-500 text-white '>Download note</Link>
               </div>
             </div>
           ))
